@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nex_vote_beta/services/function.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({Key? key}) : super(key: key);
@@ -65,7 +66,9 @@ class _SignInState extends State<SignIn> {
                     padding: EdgeInsets.only(left: 10.0),
                     child: TextField(
                       decoration: InputDecoration(
-                          border: InputBorder.none, hintText: 'Username'),
+                        border: InputBorder.none,
+                        hintText: 'Username',
+                      ),
                     ),
                   ),
                 ),
@@ -81,11 +84,13 @@ class _SignInState extends State<SignIn> {
                     border: Border.all(color: const Color(0xff610B0C)),
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: const Padding(
-                    padding: EdgeInsets.only(left: 8.0),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 10),
                     child: TextField(
-                      decoration: InputDecoration(
-                          border: InputBorder.none, hintText: 'Password'),
+                      decoration: const InputDecoration(
+                        border: InputBorder.none,
+                        hintText: 'Password',
+                      ),
                       obscureText: true,
                     ),
                   ),
@@ -106,8 +111,9 @@ class _SignInState extends State<SignIn> {
                       style: TextStyle(fontSize: 18),
                     ),
                   ),
-                  onPressed: () {
+                  onPressed: () async {
                     //CONSUME THE API TO VERIFY IF THE USER IS TRULY A STUDENT AND IS SENT TO THE DASHBOARD
+
                     Navigator.of(context).pushReplacementNamed('/dashboard');
                   },
                   style: ElevatedButton.styleFrom(
