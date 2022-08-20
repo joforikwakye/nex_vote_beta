@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nex_vote_beta/services/http_service.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({Key? key}) : super(key: key);
@@ -8,6 +9,9 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
+  String username = '';
+  String password = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,13 +65,18 @@ class _SignInState extends State<SignIn> {
                     ),
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: const Padding(
+                  child: Padding(
                     padding: EdgeInsets.only(left: 10.0),
                     child: TextField(
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         hintText: 'Username',
                       ),
+                      onChanged: (value) {
+                        setState(() {
+                          username = value;
+                        });
+                      },
                     ),
                   ),
                 ),
@@ -91,6 +100,11 @@ class _SignInState extends State<SignIn> {
                         hintText: 'Password',
                       ),
                       obscureText: true,
+                      onChanged: (value) {
+                        setState(() {
+                          password = value;
+                        });
+                      },
                     ),
                   ),
                 ),
@@ -112,8 +126,7 @@ class _SignInState extends State<SignIn> {
                   ),
                   onPressed: () async {
                     //CONSUME THE API TO VERIFY IF THE USER IS TRULY A STUDENT AND IS SENT TO THE DASHBOARD
-
-                    Navigator.of(context).pushReplacementNamed('/dashboard');
+                    await HttpService.login(username, password, context);
                   },
                   style: ElevatedButton.styleFrom(
                     primary: const Color(0xff610B0C),
