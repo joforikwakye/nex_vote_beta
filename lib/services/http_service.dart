@@ -27,7 +27,6 @@ class HttpService {
       body: jsonEncode(body),
     );
 
-
     if (response.statusCode == 200) {
       //print(jsonDecode(response.body));
       var json = jsonDecode(response.body);
@@ -41,8 +40,7 @@ class HttpService {
         await EasyLoading.showError(json["status"]);
       }
     } else {
-      await EasyLoading.showError(
-          "Error Code : No internet connection");
+      await EasyLoading.showError("Error Code : No internet connection");
     }
   }
 }
