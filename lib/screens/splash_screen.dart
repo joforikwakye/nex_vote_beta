@@ -27,7 +27,9 @@ class SplashScreen extends StatelessWidget {
           ),
         ],
       ),
-      nextScreen: SignIn(),
+
+      //i think wrapper for come
+      nextScreen:SignIn(),
       splashTransition: SplashTransition.slideTransition,
       backgroundColor: Color(0xff610B0C),
     );
