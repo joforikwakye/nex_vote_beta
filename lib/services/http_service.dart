@@ -28,7 +28,7 @@ class HttpService {
     );
 
     if (response.statusCode == 200) {
-      //print(jsonDecode(response.body));
+      print(jsonDecode(response.body));
       var json = jsonDecode(response.body);
 
       if (json["status"] == "Login successful") {
