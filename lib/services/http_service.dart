@@ -43,4 +43,7 @@ class HttpService {
       await EasyLoading.showError("Error Code : No internet connection");
     }
   }
+
+  //Another function to be called from the dashboard to display the name gotten from the username textfield
+
 }
