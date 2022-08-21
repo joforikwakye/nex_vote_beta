@@ -30,7 +30,7 @@ class SuccessPage extends StatelessWidget {
                   ElevatedButton(
                     child: Text('Go Home'),
                     onPressed: () {
-                      Navigator.of(context).pushReplacementNamed('/dashboard');
+                      Navigator.pushReplacementNamed(context, '/dashboard');
                     },
                     style: ElevatedButton.styleFrom(
                       primary: const Color(0xff610B0C),
