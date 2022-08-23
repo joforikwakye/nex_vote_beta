@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:nex_vote_beta/services/http_service.dart';
 
 class SignIn extends StatefulWidget {
@@ -126,7 +127,11 @@ class _SignInState extends State<SignIn> {
                   ),
                   onPressed: () async {
                     //CONSUME THE API TO VERIFY IF THE USER IS TRULY A STUDENT AND IS SENT TO THE DASHBOARD
-                    await HttpService.login(username, password, context);
+                    if (username.isNotEmpty && password.isNotEmpty) {
+                      await HttpService.login(username, password, context);
+                    } else {
+                      EasyLoading.showError('Please provide your credentials');
+                    }
                   },
                   style: ElevatedButton.styleFrom(
                     primary: const Color(0xff610B0C),
