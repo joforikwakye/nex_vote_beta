@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:http/http.dart' as http;
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 class HttpService {
   //responsible for making either a get or a post request to the server
@@ -28,22 +28,23 @@ class HttpService {
     );
 
     if (response.statusCode == 200) {
-      print(jsonDecode(response.body));
+      //the response body of the post request
       var json = jsonDecode(response.body);
 
-      if (json["status"] == "Login successful") {
-        await EasyLoading.showSuccess(json["status"]);
-        await Navigator.pushReplacementNamed(context, '/dashboard');
-      } else if (json["status"] == "Incorrect username or password") {
-        await EasyLoading.showError(json["status"]);
-      } else if (json["status"] == "Username or password does not exist") {
-        await EasyLoading.showError(json["status"]);
+      //saving the status and student_id from the result dictionary to navigate to the dashboard
+      var status = json['status'];
+      var student_id = json['student_id'];
+
+      if (status == 'Login successful') {
+        await EasyLoading.showSuccess(json['status']);
+        Navigator.pushReplacementNamed(context, '/dashboard');
       }
-    } else {
-      await EasyLoading.showError("Error Code : No internet connection");
+      if (json['status'] == 'Incorrect username or password') {
+        await EasyLoading.showError(json['status']);
+      } else if (json['status'] == 'Username does not exist') {
+        await EasyLoading.showError(json['status']);
+      }
     }
   }
-
-  //Another function to be called from the dashboard to display the name gotten from the username textfield
-
 }
+  //Another function to be called from the dashboard to display the name gotten from the username textfield
