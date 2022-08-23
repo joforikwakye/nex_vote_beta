@@ -13,7 +13,6 @@ class HttpService {
   static login(username, password, context) async {
     var headers = {
       'Content-Type': 'application/json',
-      //'authorization':'Basic c3R1ZHlkb3RlOnN0dWR5ZG90ZTEyMw=='
     };
 
     final body = {
@@ -47,4 +46,3 @@ class HttpService {
     }
   }
 }
-  //Another function to be called from the dashboard to display the name gotten from the username textfield
