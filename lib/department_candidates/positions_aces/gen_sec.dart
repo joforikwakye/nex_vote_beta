@@ -25,6 +25,7 @@ class _GenSecState extends State<GenSec> {
           //1ST
           Container(
             decoration: const BoxDecoration(color: Color(0xffEDD9DB)),
+            padding: EdgeInsets.all(10),
             child: RadioListTile(
               value: 0,
               groupValue: selectedValue,
@@ -32,7 +33,6 @@ class _GenSecState extends State<GenSec> {
                 'Rexford Machu',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
-              subtitle: Text('Lets do this!'),
               secondary: ClipRRect(
                 borderRadius: BorderRadius.circular(27),
                 child: Image.asset('assets/images/president1.jpeg'),
@@ -49,6 +49,7 @@ class _GenSecState extends State<GenSec> {
           //2ND
           Container(
             decoration: const BoxDecoration(color: Color(0xffEDD9DB)),
+            padding: EdgeInsets.all(10),
             child: RadioListTile(
               value: 1,
               groupValue: selectedValue,
@@ -56,7 +57,6 @@ class _GenSecState extends State<GenSec> {
                 'Marcel Nortey',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
-              subtitle: Text('Of course we can!'),
               secondary: ClipRRect(
                 borderRadius: BorderRadius.circular(27),
                 child: Image.asset('assets/images/president2.jpeg'),
@@ -73,6 +73,7 @@ class _GenSecState extends State<GenSec> {
           //3RD
           Container(
             decoration: const BoxDecoration(color: Color(0xffEDD9DB)),
+            padding: EdgeInsets.all(10),
             child: RadioListTile(
               value: 2,
               groupValue: selectedValue,
@@ -80,7 +81,6 @@ class _GenSecState extends State<GenSec> {
                 'Jeffrey Ofori Kwakye',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
-              subtitle: Text('I did it!'),
               secondary: ClipRRect(
                 borderRadius: BorderRadius.circular(27),
                 child: Image.asset('assets/images/mypic.JPG'),

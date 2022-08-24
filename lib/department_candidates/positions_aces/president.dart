@@ -24,6 +24,7 @@ class _PresidentState extends State<President> {
           //1ST
           Container(
             decoration: const BoxDecoration(color: Color(0xffEDD9DB)),
+            padding: EdgeInsets.all(10),
             child: RadioListTile(
               value: 0,
               groupValue: selectedValue,
@@ -31,7 +32,6 @@ class _PresidentState extends State<President> {
                 'Rexford Machu',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
-              subtitle: Text('Lets do this!'),
               secondary: ClipRRect(
                 borderRadius: BorderRadius.circular(27),
                 child: Image.asset('assets/images/president1.jpeg'),
@@ -48,6 +48,7 @@ class _PresidentState extends State<President> {
           //2ND
           Container(
             decoration: const BoxDecoration(color: Color(0xffEDD9DB)),
+            padding: EdgeInsets.all(10),
             child: RadioListTile(
               value: 1,
               groupValue: selectedValue,
@@ -55,7 +56,6 @@ class _PresidentState extends State<President> {
                 'Marcel Nortey',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
-              subtitle: Text('Of course we can!'),
               secondary: ClipRRect(
                 borderRadius: BorderRadius.circular(27),
                 child: Image.asset('assets/images/president2.jpeg'),
@@ -72,6 +72,7 @@ class _PresidentState extends State<President> {
           //3RD
           Container(
             decoration: const BoxDecoration(color: Color(0xffEDD9DB)),
+            padding: EdgeInsets.all(10),
             child: RadioListTile(
               value: 2,
               groupValue: selectedValue,
@@ -79,7 +80,6 @@ class _PresidentState extends State<President> {
                 'Jeffrey Ofori Kwakye',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
-              subtitle: Text('I did it!'),
               secondary: ClipRRect(
                 borderRadius: BorderRadius.circular(27),
                 child: Image.asset('assets/images/mypic.JPG'),
