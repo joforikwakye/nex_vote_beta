@@ -38,13 +38,13 @@ class _DashboardState extends State<Dashboard> {
                       Text(
                         'Hello ${data['name']},',
                         style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
+                            fontSize: 25, fontWeight: FontWeight.bold),
                       ),
                       SizedBox(height: 8),
                       Text(
                         'Good Afternoon',
                         style: TextStyle(
-                          fontSize: 25,
+                          fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
