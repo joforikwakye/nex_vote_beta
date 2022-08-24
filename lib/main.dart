@@ -6,6 +6,7 @@ import 'package:nex_vote_beta/department_candidates/gesa.dart';
 import 'package:nex_vote_beta/screens/dashboard.dart';
 import 'package:nex_vote_beta/screens/review.dart';
 import 'package:nex_vote_beta/screens/see_all.dart';
+import 'package:nex_vote_beta/screens/sign_in.dart';
 import 'package:nex_vote_beta/screens/success.dart';
 import 'screens/splash_screen.dart';
 
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
         '/aces': (context) => const ACES(),
         '/biomed': (context) => const BIOMED(),
         '/success': (context) => const SuccessPage(),
+        '/sign_in': (context) => const SignIn(),
       },
       debugShowCheckedModeBanner: false,
       home: const SplashScreen(),
