@@ -38,7 +38,7 @@ class HttpService {
       var studentId = json['student_id'];
 
       if (json['status'] == 'Login successful') {
-        await EasyLoading.showSuccess(json['status']);
+        //await EasyLoading.showSuccess(json['status']);
         http.Response response2 = await client
             .get(Uri.parse('http://10.0.2.2:5000/student/$studentId'));
 
@@ -51,6 +51,7 @@ class HttpService {
           SetArgs args = SetArgs();
           args.setFirstName(firstName);
           args.setImageUrl(imageUrl);
+
           Navigator.pushReplacementNamed(
             context,
             '/dashboard',
@@ -59,12 +60,14 @@ class HttpService {
               'url': args.getImageUrl,
             },
           );
+          return 'success';
         }
       } else if (json['status'] == 'Incorrect username or password') {
-        await EasyLoading.showError(json['status']);
+        return json['status'];
       } else if (json['status'] == 'Username does not exist') {
-        await EasyLoading.showError(json['status']);
+        return json['status'];
       }
+      //return 'failed';
     }
 
     // static void fetchFirstnameAndImageUrl(var studentId) async {
