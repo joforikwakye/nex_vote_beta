@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:nex_vote_beta/services/http_service.dart';
 import 'package:nex_vote_beta/widgets/loading.dart';
 
@@ -123,7 +122,7 @@ class _SignInState extends State<SignIn> {
                     ClipRRect(
                       borderRadius: BorderRadius.circular(8),
                       child: ElevatedButton(
-                        child: const Padding(
+                        child: Padding(
                           padding: EdgeInsets.symmetric(
                               horizontal: 120.0, vertical: 16),
                           child: Text(
@@ -132,7 +131,6 @@ class _SignInState extends State<SignIn> {
                           ),
                         ),
                         onPressed: () async {
-                          //CONSUME THE API TO VERIFY IF THE USER IS TRULY A STUDENT AND IS SENT TO THE DASHBOARD
                           if (username.isNotEmpty && password.isNotEmpty) {
                             setState(() => loading = true);
                             data = await HttpService.login(
@@ -140,16 +138,32 @@ class _SignInState extends State<SignIn> {
                             if (data == 'Incorrect username or password') {
                               setState(() {
                                 loading = false;
-                                print('incorrect');
+                                var snackBar = const SnackBar(
+                                  content:
+                                      Text('Incorrect username or password'),
+                                  backgroundColor: Colors.red,
+                                );
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(snackBar);
                               });
                             } else if (data == 'Username does not exist') {
                               setState(() {
                                 loading = false;
-                                print('incorrect username');
+                                var snackBar = const SnackBar(
+                                  content: Text('Username does not exist'),
+                                  backgroundColor: Colors.red,
+                                );
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(snackBar);
                               });
                             }
                           } else {
-                            EasyLoading.showError('Please provide credentials');
+                            var snackBar = const SnackBar(
+                              content: Text('Please provide credentials'),
+                              backgroundColor: Colors.red,
+                            );
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(snackBar);
                           }
                         },
                         style: ElevatedButton.styleFrom(
