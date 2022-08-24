@@ -12,11 +12,24 @@ class Dashboard extends StatefulWidget {
 class _DashboardState extends State<Dashboard> {
   Map data = {};
 
+  String get greeting {
+    var greeting = '';
+    var hour = DateTime.now().hour;
+    if (hour < 12) {
+      greeting = 'Good Morning';
+    } else if (hour >= 12 && hour <= 17) {
+      greeting = 'Good Afternoon';
+    } else if (hour >= 18) {
+      greeting = 'Good Evening';
+    }
+
+    return greeting;
+  }
+
   @override
   Widget build(BuildContext context) {
     data = ModalRoute.of(context)?.settings.arguments as Map;
     print(data);
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('NexVote'),
@@ -42,7 +55,7 @@ class _DashboardState extends State<Dashboard> {
                       ),
                       SizedBox(height: 8),
                       Text(
-                        'Good Afternoon',
+                        greeting,
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
