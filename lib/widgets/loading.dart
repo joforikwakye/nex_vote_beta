@@ -9,7 +9,7 @@ class Loading extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color(0xff610B0C),
       body: Center(
-        child: SpinKitRotatingCircle(
+        child: SpinKitThreeBounce(
           color: Colors.white,
           size: 50.0,
         ),
