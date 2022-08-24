@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:nex_vote_beta/department_candidates/biomed.dart';
 import 'package:nex_vote_beta/department_candidates/aces.dart';
 import 'package:nex_vote_beta/department_candidates/gesa.dart';
@@ -30,7 +29,6 @@ class MyApp extends StatelessWidget {
       },
       debugShowCheckedModeBanner: false,
       home: const SplashScreen(),
-      builder: EasyLoading.init(),
     );
   }
 }
