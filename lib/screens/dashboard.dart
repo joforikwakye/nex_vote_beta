@@ -2,11 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:nex_vote_beta/screens/coe.dart';
 import 'package:nex_vote_beta/screens/cos.dart';
 
-class Dashboard extends StatelessWidget {
+class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
 
   @override
+  State<Dashboard> createState() => _DashboardState();
+}
+
+class _DashboardState extends State<Dashboard> {
+  Map data = {};
+
+  @override
   Widget build(BuildContext context) {
+    data = ModalRoute.of(context)?.settings.arguments as Map;
+    print(data);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('NexVote'),
@@ -26,7 +36,7 @@ class Dashboard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Hello Jeff,',
+                        'Hello ${data['name']},',
                         style: TextStyle(
                             fontSize: 20, fontWeight: FontWeight.bold),
                       ),
@@ -42,10 +52,10 @@ class Dashboard extends StatelessWidget {
                   ),
                   //SizedBox(width: 80),
                   ClipRRect(
-                    child: Image.asset(
-                      'assets/images/mypic.JPG',
-                      width: 80,
+                    child: Image.network(
+                      '${data['url']}',
                       height: 80,
+                      width: 80,
                     ),
                     borderRadius: BorderRadius.circular(80),
                   ),
@@ -63,7 +73,9 @@ class Dashboard extends StatelessWidget {
                     'Sign out',
                     style: TextStyle(fontSize: 12),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushReplacementNamed(context, '/sign_in');
+                  },
                   style: ElevatedButton.styleFrom(
                     primary: const Color(0xff610B0C),
                     onPrimary: Colors.white,
