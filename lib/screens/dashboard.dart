@@ -14,14 +14,17 @@ class _DashboardState extends State<Dashboard> {
 
   String get greeting {
     var greeting = '';
-    var hour = DateTime.now().hour;
-    if (hour < 12) {
-      greeting = 'Good Morning';
-    } else if (hour >= 12 && hour <= 17) {
-      greeting = 'Good Afternoon';
-    } else if (hour >= 18) {
-      greeting = 'Good Evening';
-    }
+    var time = DateTime.now();
+
+    print(time);
+
+    // if (time.hour < 12) {
+    //   greeting = 'Good Morning.';
+    // } else if (time.hour >= 12 && time.hour <= 17) {
+    //   greeting = 'Good Afternoon';
+    // } else if (time.hour >= 18) {
+    //   greeting = 'Good Evening.';
+    // }
 
     return greeting;
   }
