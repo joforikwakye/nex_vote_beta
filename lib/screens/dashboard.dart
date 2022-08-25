@@ -16,15 +16,13 @@ class _DashboardState extends State<Dashboard> {
     var greeting = '';
     var time = DateTime.now();
 
-    print(time);
-
-    // if (time.hour < 12) {
-    //   greeting = 'Good Morning.';
-    // } else if (time.hour >= 12 && time.hour <= 17) {
-    //   greeting = 'Good Afternoon';
-    // } else if (time.hour >= 18) {
-    //   greeting = 'Good Evening.';
-    // }
+    if (time.hour < 12) {
+      greeting = 'Good Morning.';
+    } else if (time.hour >= 12 && time.hour <= 17) {
+      greeting = 'Good Afternoon';
+    } else if (time.hour >= 18) {
+      greeting = 'Good Evening.';
+    }
 
     return greeting;
   }
@@ -33,6 +31,7 @@ class _DashboardState extends State<Dashboard> {
   Widget build(BuildContext context) {
     data = ModalRoute.of(context)?.settings.arguments as Map;
     print(data);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('NexVote'),
