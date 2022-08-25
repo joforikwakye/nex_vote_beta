@@ -29,7 +29,7 @@ class HttpService {
 
     if (response.statusCode == 200) {
       //the response body of the post request
-      print(response.body);
+      //print(response.body);
       json = jsonDecode(response.body);
 
       //saving the status and student_id from the result dictionary to navigate to the dashboard
