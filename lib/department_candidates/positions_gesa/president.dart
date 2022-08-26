@@ -2,14 +2,14 @@
 
 import 'package:flutter/material.dart';
 
-class President extends StatefulWidget {
-  const President({Key? key}) : super(key: key);
+class PresidentGesa extends StatefulWidget {
+  const PresidentGesa({Key? key}) : super(key: key);
 
   @override
-  State<President> createState() => _PresidentState();
+  State<PresidentGesa> createState() => _PresidentGesaState();
 }
 
-class _PresidentState extends State<President> {
+class _PresidentGesaState extends State<PresidentGesa> {
   int selectedValue = 4;
 
   @override

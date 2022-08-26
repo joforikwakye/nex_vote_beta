@@ -1,10 +1,9 @@
 //THIS CLASS IS REPSONSIBLE FOR DISPLAYING THE VARIOUS CANDIDATES FOR ACES
 
 import 'package:flutter/material.dart';
-
-import 'positions_aces/fin_sec.dart';
-import 'positions_aces/gen_sec.dart';
-import 'positions_aces/president.dart';
+import 'package:nex_vote_beta/department_candidates/positions_gesa/fin_sec.dart';
+import 'package:nex_vote_beta/department_candidates/positions_gesa/gen_sec.dart';
+import 'package:nex_vote_beta/department_candidates/positions_gesa/president.dart';
 
 class Gesa extends StatelessWidget {
   @override
@@ -28,9 +27,9 @@ class Gesa extends StatelessWidget {
         body: const TabBarView(
           children: [
             //PRESIDENTS
-            President(),
-            FinSec(),
-            GenSec(),
+            PresidentGesa(),
+            FinSecGesa(),
+            GenSecGesa(),
           ],
         ),
         floatingActionButton: FloatingActionButton(
