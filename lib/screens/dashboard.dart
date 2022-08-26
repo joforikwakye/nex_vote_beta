@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nex_vote_beta/screens/coe.dart';
 import 'package:nex_vote_beta/screens/cos.dart';
-import 'package:nex_vote_beta/services/http_service.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);

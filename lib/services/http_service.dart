@@ -8,6 +8,7 @@ class HttpService {
   static final client = http.Client();
 
   static var loginUrl = Uri.parse('http://10.0.2.2:5000/login');
+  static var getPresidentsUrl = Uri.parse('http://127.0.0.1:5000/presidents');
 
   static login(username, password, context) async {
     var headers = {
@@ -35,8 +36,6 @@ class HttpService {
       //saving the status and student_id from the result dictionary to navigate to the dashboard
       var status = json['status'];
       var studentId = json['student_id'];
-
-      fetchFirstnameAndImageUrl(studentId);
 
       if (json['status'] == 'Login successful') {
         //await EasyLoading.showSuccess(json['status']);
@@ -69,10 +68,5 @@ class HttpService {
         return json['status'];
       }
     }
-  }
-
-  static void fetchFirstnameAndImageUrl(var studentId) {
-    var sId = studentId;
-    print(sId);
   }
 }
