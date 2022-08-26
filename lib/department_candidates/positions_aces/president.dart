@@ -11,8 +11,12 @@ class President extends StatefulWidget {
 
 class _PresidentState extends State<President> {
   int selectedValue = 4;
+  Map data = {};
   @override
   Widget build(BuildContext context) {
+    data = ModalRoute.of(context)?.settings.arguments as Map;
+    print(data);
+
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       margin: const EdgeInsets.symmetric(horizontal: 10),
