@@ -1,4 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
+import '../services/http_service.dart' as http;
 
 class CollegeAvatars extends StatelessWidget {
   final String imageUrl;
@@ -9,9 +13,17 @@ class CollegeAvatars extends StatelessWidget {
 
 /*THIS FUNCTION DETERMINES THE IMAGEID BEING PASSED TO THE CONSTRUCTOR AND 
 NAVIGATES TO THE APPROPRIATE SCREEN */
-  void navigations(BuildContext context) {
+  void navigations(BuildContext context) async {
     if (imageId == 1) {
-      Navigator.of(context).pushNamed('/aces');
+      Response response =
+          await get(Uri.parse('http://10.0.2.2:5000/presidents'));
+      var data = jsonDecode(response.body);
+
+      List presidents = [];
+
+      presidents.add(data);
+
+      Navigator.of(context).pushNamed('/aces', arguments: {'data': presidents});
     } else if (imageId == 2) {
       Navigator.of(context).pushNamed('/biomed');
     } else if (imageId == 3) {
