@@ -67,6 +67,13 @@ class HttpService {
       } else if (json['status'] == 'Username does not exist') {
         return json['status'];
       }
+    } else if (response.statusCode == 500) {
+      Navigator.pushReplacementNamed(context, '/sign_in');
+      var snackBar = const SnackBar(
+        content: Text('Please check internet connection'),
+        backgroundColor: Colors.red,
+      );
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
     }
   }
 }
