@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'sign_in.dart';
 
 class SplashScreen extends StatelessWidget {
-  const SplashScreen({Key? key}) : super(key: key);
+  const SplashScreen({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class SplashScreen extends StatelessWidget {
       ),
 
       //i think wrapper for come
-      nextScreen:SignIn(),
+      nextScreen: SignIn(),
       splashTransition: SplashTransition.slideTransition,
       backgroundColor: Color(0xff610B0C),
     );

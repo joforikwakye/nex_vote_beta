@@ -3,7 +3,7 @@ import 'package:nex_vote_beta/screens/coe.dart';
 import 'package:nex_vote_beta/screens/cos.dart';
 
 class Dashboard extends StatefulWidget {
-  const Dashboard({Key? key}) : super(key: key);
+  const Dashboard({Key key}) : super(key: key);
 
   @override
   State<Dashboard> createState() => _DashboardState();
@@ -30,7 +30,7 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     data = ModalRoute.of(context)?.settings.arguments as Map;
-
+    print(data);
     return Scaffold(
       appBar: AppBar(
         title: const Text('NexVote'),
@@ -66,10 +66,11 @@ class _DashboardState extends State<Dashboard> {
                   ),
                   //SizedBox(width: 80),
                   ClipRRect(
+                    // ignore: sort_child_properties_last
                     child: Image.network(
                       '${data['url']}',
-                      height: 80,
                       width: 80,
+                      height: 80,
                     ),
                     borderRadius: BorderRadius.circular(80),
                   ),

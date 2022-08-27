@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 class FinSecBiomed extends StatefulWidget {
-  const FinSecBiomed({Key? key}) : super(key: key);
+  const FinSecBiomed({Key key}) : super(key: key);
 
   @override
   State<FinSecBiomed> createState() => _FinSecBiomedState();
@@ -35,9 +35,9 @@ class _FinSecBiomedState extends State<FinSecBiomed> {
                 borderRadius: BorderRadius.circular(27),
                 child: Image.asset('assets/images/president1.jpeg'),
               ),
-              onChanged: (int? value) {
+              onChanged: (int value) {
                 setState(() {
-                  selectedValue = value!;
+                  selectedValue = value;
                 });
               },
             ),
@@ -59,9 +59,9 @@ class _FinSecBiomedState extends State<FinSecBiomed> {
                 borderRadius: BorderRadius.circular(27),
                 child: Image.asset('assets/images/president2.jpeg'),
               ),
-              onChanged: (int? value) {
+              onChanged: (int value) {
                 setState(() {
-                  selectedValue = value!;
+                  selectedValue = value;
                 });
               },
             ),
@@ -83,9 +83,9 @@ class _FinSecBiomedState extends State<FinSecBiomed> {
                 borderRadius: BorderRadius.circular(27),
                 child: Image.asset('assets/images/mypic.JPG'),
               ),
-              onChanged: (int? value) {
+              onChanged: (int value) {
                 setState(() {
-                  selectedValue = value!;
+                  selectedValue = value;
                 });
               },
             ),

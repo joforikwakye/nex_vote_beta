@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 
 class GenSecBiomed extends StatefulWidget {
-  const GenSecBiomed({Key? key}) : super(key: key);
+  const GenSecBiomed({Key key}) : super(key: key);
 
   @override
   State<GenSecBiomed> createState() => _GenSecBiomedState();
@@ -37,9 +37,9 @@ class _GenSecBiomedState extends State<GenSecBiomed> {
                 borderRadius: BorderRadius.circular(27),
                 child: Image.asset('assets/images/president1.jpeg'),
               ),
-              onChanged: (int? value) {
+              onChanged: (int value) {
                 setState(() {
-                  selectedValue = value!;
+                  selectedValue = value;
                 });
               },
             ),
@@ -61,9 +61,9 @@ class _GenSecBiomedState extends State<GenSecBiomed> {
                 borderRadius: BorderRadius.circular(27),
                 child: Image.asset('assets/images/president2.jpeg'),
               ),
-              onChanged: (int? value) {
+              onChanged: (int value) {
                 setState(() {
-                  selectedValue = value!;
+                  selectedValue = value;
                 });
               },
             ),
@@ -85,9 +85,9 @@ class _GenSecBiomedState extends State<GenSecBiomed> {
                 borderRadius: BorderRadius.circular(27),
                 child: Image.asset('assets/images/mypic.JPG'),
               ),
-              onChanged: (int? value) {
+              onChanged: (int value) {
                 setState(() {
-                  selectedValue = value!;
+                  selectedValue = value;
                 });
               },
             ),

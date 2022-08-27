@@ -5,7 +5,7 @@ import 'package:nex_vote_beta/department_candidates/positions_biomed/gen_sec.dar
 import 'package:nex_vote_beta/department_candidates/positions_biomed/president.dart';
 
 class BIOMED extends StatelessWidget {
-  const BIOMED({Key? key}) : super(key: key);
+  const BIOMED({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

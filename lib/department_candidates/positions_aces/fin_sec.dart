@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 class FinSec extends StatefulWidget {
-  const FinSec({Key? key}) : super(key: key);
+  const FinSec({Key key}) : super(key: key);
 
   @override
   State<FinSec> createState() => _FinSecState();
@@ -35,9 +35,9 @@ class _FinSecState extends State<FinSec> {
                 borderRadius: BorderRadius.circular(27),
                 child: Image.asset('assets/images/president1.jpeg'),
               ),
-              onChanged: (int? value) {
+              onChanged: (int value) {
                 setState(() {
-                  selectedValue = value!;
+                  selectedValue = value;
                 });
               },
             ),
@@ -59,9 +59,9 @@ class _FinSecState extends State<FinSec> {
                 borderRadius: BorderRadius.circular(27),
                 child: Image.asset('assets/images/president2.jpeg'),
               ),
-              onChanged: (int? value) {
+              onChanged: (int value) {
                 setState(() {
-                  selectedValue = value!;
+                  selectedValue = value;
                 });
               },
             ),
@@ -83,9 +83,9 @@ class _FinSecState extends State<FinSec> {
                 borderRadius: BorderRadius.circular(27),
                 child: Image.asset('assets/images/mypic.JPG'),
               ),
-              onChanged: (int? value) {
+              onChanged: (int value) {
                 setState(() {
-                  selectedValue = value!;
+                  selectedValue = value;
                 });
               },
             ),

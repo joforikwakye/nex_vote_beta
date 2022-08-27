@@ -1,6 +1,6 @@
 class SetArgs {
-  late String _firstName;
-  late String _imageUrl;
+  String _firstName;
+  String _imageUrl;
 
   setFirstName(firstName) {
     _firstName = firstName;

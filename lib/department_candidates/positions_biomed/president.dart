@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 
 class PresidentBiomed extends StatefulWidget {
-  const PresidentBiomed({Key? key}) : super(key: key);
+  const PresidentBiomed({Key key}) : super(key: key);
 
   @override
   State<PresidentBiomed> createState() => _PresidentBiomedState();
@@ -37,9 +37,9 @@ class _PresidentBiomedState extends State<PresidentBiomed> {
                 borderRadius: BorderRadius.circular(27),
                 child: Image.asset('assets/images/president1.jpeg'),
               ),
-              onChanged: (int? value) {
+              onChanged: (int value) {
                 setState(() {
-                  selectedValue = value!;
+                  selectedValue = value;
                 });
               },
             ),
@@ -61,9 +61,9 @@ class _PresidentBiomedState extends State<PresidentBiomed> {
                 borderRadius: BorderRadius.circular(27),
                 child: Image.asset('assets/images/president2.jpeg'),
               ),
-              onChanged: (int? value) {
+              onChanged: (int value) {
                 setState(() {
-                  selectedValue = value!;
+                  selectedValue = value;
                 });
               },
             ),
@@ -85,9 +85,9 @@ class _PresidentBiomedState extends State<PresidentBiomed> {
                 borderRadius: BorderRadius.circular(27),
                 child: Image.asset('assets/images/mypic.JPG'),
               ),
-              onChanged: (int? value) {
+              onChanged: (int value) {
                 setState(() {
-                  selectedValue = value!;
+                  selectedValue = value;
                 });
               },
             ),

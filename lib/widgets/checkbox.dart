@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Checkobx extends StatefulWidget {
-  const Checkobx({Key? key}) : super(key: key);
+  const Checkobx({Key key}) : super(key: key);
 
   @override
   State<Checkobx> createState() => _CheckobxState();

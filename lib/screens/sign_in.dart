@@ -3,7 +3,7 @@ import 'package:nex_vote_beta/services/http_service.dart';
 import 'package:nex_vote_beta/widgets/loading.dart';
 
 class SignIn extends StatefulWidget {
-  const SignIn({Key? key}) : super(key: key);
+  const SignIn({Key key}) : super(key: key);
 
   @override
   State<SignIn> createState() => _SignInState();
