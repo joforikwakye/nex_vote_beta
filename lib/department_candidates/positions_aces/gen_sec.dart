@@ -16,10 +16,12 @@ class GenSec extends StatefulWidget {
 class _GenSecState extends State<GenSec> {
   int selectedValue = 4;
 
-  Future getPresidents() async {
+  Future getGeneralSec() async {
     var response = await http.get(Uri.parse('http://10.0.2.2:5000/gen_sec'));
     var jsonData = jsonDecode(response.body);
 
+    //maintaining this naming convention because the other classes literally have the same data
+    //but changed the function name tho
     List<Presidents> presidents = [];
     for (var pres in jsonData) {
       Presidents president =
@@ -33,7 +35,7 @@ class _GenSecState extends State<GenSec> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: getPresidents(),
+      future: getGeneralSec(),
       // ignore: missing_return
       builder: (context, snapshot) {
         if (snapshot.data == null) {
