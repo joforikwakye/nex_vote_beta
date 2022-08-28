@@ -19,6 +19,8 @@ class _FinSecState extends State<FinSec> {
     var response = await http.get(Uri.parse('http://10.0.2.2:5000/fin_sec'));
     var jsonData = jsonDecode(response.body);
 
+    //maintaining this naming convention because the other classes literally have the same data
+    //but changed the function name tho
     List<Presidents> presidents = [];
     for (var pres in jsonData) {
       Presidents president =
