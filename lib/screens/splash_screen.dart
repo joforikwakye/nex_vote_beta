@@ -9,7 +9,7 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnimatedSplashScreen(
       splash: Column(
-        children: [
+        children: const [
           Text(
             'NexVote',
             style: TextStyle(
@@ -29,9 +29,9 @@ class SplashScreen extends StatelessWidget {
       ),
 
       //i think wrapper for come
-      nextScreen: SignIn(),
+      nextScreen: const SignIn(),
       splashTransition: SplashTransition.slideTransition,
-      backgroundColor: Color(0xff610B0C),
+      backgroundColor: const Color(0xff610B0C),
     );
   }
 }

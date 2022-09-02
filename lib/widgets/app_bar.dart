@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String text;
 
-  CustomAppBar(this.text);
+  // ignore: use_key_in_widget_constructors
+  const CustomAppBar(this.text);
 
   @override
   @override
@@ -16,6 +17,5 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  // TODO: implement preferredSize
   Size get preferredSize => throw UnimplementedError();
 }

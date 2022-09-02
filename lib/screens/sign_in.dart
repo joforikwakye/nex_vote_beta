@@ -19,7 +19,7 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     return loading
-        ? Loading()
+        ? const Loading()
         : Scaffold(
             appBar: AppBar(
               // ignore: prefer_const_constructors
@@ -36,13 +36,13 @@ class _SignInState extends State<SignIn> {
             body: SafeArea(
               child: SingleChildScrollView(
                 //THIS PROPERTY PREVENTS THE KEYBOARD FROM COVERING THE SIGN IN BUTTON
-                //FIX THE RENDEROVERFLOW BUG ANOTHER TIME!!!
                 reverse: true,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const SizedBox(height: 80),
                     ClipRRect(
+                      // ignore: sort_child_properties_last
                       child: Image.asset(
                         'assets/images/voter-voting.jpeg',
                         width: 150,
@@ -67,14 +67,14 @@ class _SignInState extends State<SignIn> {
                       child: Container(
                         decoration: BoxDecoration(
                           border: Border.all(
-                            color: Color(0xff610B0C),
+                            color: const Color(0xff610B0C),
                           ),
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Padding(
-                          padding: EdgeInsets.only(left: 10.0),
+                          padding: const EdgeInsets.only(left: 10.0),
                           child: TextField(
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                               border: InputBorder.none,
                               hintText: 'Username',
                             ),

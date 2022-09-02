@@ -14,7 +14,7 @@ class GenSec extends StatefulWidget {
 }
 
 class _GenSecState extends State<GenSec> {
-  int selectedValue = 4;
+  int selectedValue;
 
   Future getGeneralSec() async {
     var response = await http.get(Uri.parse('http://10.0.2.2:5000/gen_sec'));
@@ -39,8 +39,7 @@ class _GenSecState extends State<GenSec> {
       // ignore: missing_return
       builder: (context, snapshot) {
         if (snapshot.data == null) {
-          return const Center(
-              child: Text('Please check internet connectivity and retry'));
+          return const Center(child: Text('Loading...'));
         } else
           // ignore: curly_braces_in_flow_control_structures
           return ListView.builder(
@@ -52,7 +51,7 @@ class _GenSecState extends State<GenSec> {
                   decoration: const BoxDecoration(color: Color(0xffEDD9DB)),
                   padding: const EdgeInsets.all(10),
                   child: RadioListTile(
-                    value: 0,
+                    value: index,
                     groupValue: selectedValue,
                     title: Text(
                       snapshot.data[index].firstName +

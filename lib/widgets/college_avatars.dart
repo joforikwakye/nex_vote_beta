@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:nex_vote_beta/models/get_presidents.dart';
 
 class CollegeAvatars extends StatelessWidget {
   final String imageUrl;
@@ -12,9 +11,6 @@ class CollegeAvatars extends StatelessWidget {
 NAVIGATES TO THE APPROPRIATE SCREEN */
   void navigations(BuildContext context) async {
     if (imageId == 1) {
-      // GetPresidents getPresidents = GetPresidents();
-      // var result = await getPresidents.getPresidents();
-      // // ignore: use_build_context_synchronously
       Navigator.of(context).pushNamed('/aces');
     } else if (imageId == 2) {
       Navigator.of(context).pushNamed('/biomed');

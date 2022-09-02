@@ -8,7 +8,7 @@ class HttpService {
   static final client = http.Client();
 
   static var loginUrl = Uri.parse('http://10.0.2.2:5000/login');
-  static var getPresidentsUrl = Uri.parse('http://127.0.0.1:5000/presidents');
+  static var getPresidentsUrl = Uri.parse('http://10.0.2.2:5000/presidents');
 
   static login(username, password, context) async {
     var headers = {
