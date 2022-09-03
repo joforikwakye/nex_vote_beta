@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class UserProvider with ChangeNotifier {
   bool votesSubmitted = false;
   Map<String, String> userInfo = {"name": "", "imageUrl": ""};
+
   final votes = {
     "president": {"name": "", "imageUrl": ""},
     "finSec": {"name": "", "imageUrl": ""},

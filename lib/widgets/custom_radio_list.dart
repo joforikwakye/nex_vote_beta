@@ -31,6 +31,7 @@ class CustomRadioListTile extends StatelessWidget {
     );
   }
 
+//saves the index of whoever you vote for
   int getGroupValue(portfolio, BuildContext context) {
     switch (portfolio) {
       case "president":
