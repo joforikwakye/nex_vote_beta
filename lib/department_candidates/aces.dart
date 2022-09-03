@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:nex_vote_beta/department_candidates/positions_aces/fin_sec.dart';
 import 'package:nex_vote_beta/department_candidates/positions_aces/gen_sec.dart';
 import 'package:nex_vote_beta/department_candidates/positions_aces/president.dart';
+import 'package:nex_vote_beta/providers/user_provider.dart';
+import 'package:provider/provider.dart';
 
 class ACES extends StatelessWidget {
   const ACES({Key key}) : super(key: key);
@@ -34,7 +36,14 @@ class ACES extends StatelessWidget {
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            Navigator.of(context).pushNamed('/review');
+            final finishedVoting = context
+                .read<UserProvider>()
+                .votes
+                .values
+                .every((element) => element["name"] != "");
+            finishedVoting == true
+                ? Navigator.of(context).pushNamed('/review')
+                : showSnackBar(context);
           },
           backgroundColor: const Color(0xff610B0C),
           child: const Icon(Icons.arrow_forward),
@@ -42,13 +51,12 @@ class ACES extends StatelessWidget {
       ),
     );
   }
+
+  void showSnackBar(BuildContext context) {
+    var snackBar = const SnackBar(
+      content: Text('Please vote for every position'),
+      backgroundColor: Colors.red,
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  }
 }
-
-
-//  floatingActionButton: FloatingActionButton(
-//           onPressed: () {
-//             Navigator.of(context).pushNamed('/review');
-//           },
-//           backgroundColor: const Color(0xff610B0C),
-//           child: const Icon(Icons.arrow_forward),
-//         ),
