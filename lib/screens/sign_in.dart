@@ -25,6 +25,7 @@ class _SignInState extends State<SignIn> {
         ? const Loading()
         : Scaffold(
             appBar: AppBar(
+              automaticallyImplyLeading: false,
               title: Text(
                 'Welcome',
                 style: GoogleFonts.lato(
