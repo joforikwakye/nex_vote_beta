@@ -53,7 +53,7 @@ class _FinSecState extends State<FinSec> {
                   child: CustomRadioListTile(
                     index: index,
                     snapshot: snapshot,
-                    portfolio: "genSec",
+                    portfolio: "finSec",
                   ),
                 ),
               );
