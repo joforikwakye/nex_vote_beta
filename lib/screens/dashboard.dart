@@ -19,9 +19,9 @@ class _DashboardState extends State<Dashboard> {
 
     if (time.hour < 12) {
       greeting = 'Good Morning.';
-    } else if (time.hour >= 12 && time.hour <= 17) {
+    } else if (time.hour >= 12 && time.hour <= 4) {
       greeting = 'Good Afternoon.';
-    } else if (time.hour >= 18) {
+    } else if (time.hour >= 5) {
       greeting = 'Good Evening.';
     }
 
