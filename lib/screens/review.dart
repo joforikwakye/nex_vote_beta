@@ -95,12 +95,12 @@ class ReviewScreen extends StatelessWidget {
                 ),
                 title: Text(
                   context.watch<UserProvider>().votes["genSec"]["name"],
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
               ),
             ),
 
-            SizedBox(height: 180),
+            const SizedBox(height: 150),
             context.watch<UserProvider>().votesSubmitted == false
                 ? Center(
                     child: ClipRRect(
