@@ -1,11 +1,8 @@
 //DISPLAYING THE GENERAL SECRETARY CANDIDATES FOR BIOMED
 
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:nex_vote_beta/models/get_presidents.dart';
+import 'package:nex_vote_beta/services/api_calls.dart';
 import 'package:nex_vote_beta/widgets/custom_radio_list.dart';
-import 'package:http/http.dart' as http;
 
 class GenSecBiomed extends StatefulWidget {
   const GenSecBiomed({Key key}) : super(key: key);
@@ -17,27 +14,10 @@ class GenSecBiomed extends StatefulWidget {
 class _GenSecBiomedState extends State<GenSecBiomed> {
   int selectedValue = 4;
 
-  Future getBiomedGenSec() async {
-    var response =
-        await http.get(Uri.parse('http://10.0.2.2:5000/biomed_gensec'));
-    var jsonData = jsonDecode(response.body);
-
-    //maintaining this naming convention because the other classes literally have the same data
-    //but changed the function name tho
-    List<Presidents> presidents = [];
-    for (var pres in jsonData) {
-      Presidents president =
-          Presidents(pres['firstname'], pres['imageurl'], pres['lastname']);
-      presidents.add(president);
-    }
-
-    return presidents;
-  }
-
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: getBiomedGenSec(),
+      future: ApiCalls.getBiomedGenSec(),
       // ignore: missing_return
       builder: (context, snapshot) {
         if (snapshot.data == null) {
