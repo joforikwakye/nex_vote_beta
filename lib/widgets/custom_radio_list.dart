@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nex_vote_beta/providers/user_provider.dart';
 import 'package:provider/provider.dart';
 
-import '../models/get_presidents.dart';
+import '../models/position_models.dart';
 
 class CustomRadioListTile extends StatelessWidget {
   final int index;

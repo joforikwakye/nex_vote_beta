@@ -1,7 +1,7 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-import 'package:nex_vote_beta/models/get_presidents.dart';
+import 'package:nex_vote_beta/models/position_models.dart';
 
 class ApiCalls {
   //GESA API CALLS
