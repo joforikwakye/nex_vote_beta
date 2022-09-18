@@ -18,7 +18,8 @@ class _GenSecState extends State<GenSec> {
   int selectedValue;
 
   Future getGeneralSec() async {
-    var response = await http.get(Uri.parse('http://10.0.2.2:5000/gen_sec'));
+    var response =
+        await http.get(Uri.parse('http://10.0.2.2:5000/aces_gensec'));
     var jsonData = jsonDecode(response.body);
 
     //maintaining this naming convention because the other classes literally have the same data
