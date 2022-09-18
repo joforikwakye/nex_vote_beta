@@ -17,7 +17,8 @@ class _FinSecState extends State<FinSec> {
   int selectedValue;
 
   Future getFinSec() async {
-    var response = await http.get(Uri.parse('http://10.0.2.2:5000/fin_sec'));
+    var response =
+        await http.get(Uri.parse('http://10.0.2.2:5000/aces_finsec'));
     var jsonData = jsonDecode(response.body);
 
     //maintaining this naming convention because the other classes literally have the same data
