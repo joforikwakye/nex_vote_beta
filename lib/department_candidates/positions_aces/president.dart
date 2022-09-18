@@ -16,7 +16,8 @@ class President extends StatefulWidget {
 class _PresidentState extends State<President> {
   int selectedValue;
   Future getPresidents() async {
-    var response = await http.get(Uri.parse('http://10.0.2.2:5000/presidents'));
+    var response =
+        await http.get(Uri.parse('http://10.0.2.2:5000/aces_presidents'));
     var jsonData = jsonDecode(response.body);
 
     List<Presidents> presidents = [];
