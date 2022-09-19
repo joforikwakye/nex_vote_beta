@@ -12,8 +12,6 @@ class PresidentBiomed extends StatefulWidget {
 }
 
 class _PresidentBiomedState extends State<PresidentBiomed> {
-  int selectedValue = 4;
-
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
@@ -35,7 +33,8 @@ class _PresidentBiomedState extends State<PresidentBiomed> {
                   child: CustomRadioListTile(
                     index: index,
                     snapshot: snapshot,
-                    portfolio: "finSec",
+                    portfolio: "president",
+                    dept: "biomed",
                   ),
                 ),
               );

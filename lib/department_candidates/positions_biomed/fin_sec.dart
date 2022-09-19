@@ -12,8 +12,6 @@ class FinSecBiomed extends StatefulWidget {
 }
 
 class _FinSecBiomedState extends State<FinSecBiomed> {
-  int selectedValue = 4;
-
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
@@ -36,6 +34,7 @@ class _FinSecBiomedState extends State<FinSecBiomed> {
                     index: index,
                     snapshot: snapshot,
                     portfolio: "finSec",
+                    dept: "biomed",
                   ),
                 ),
               );
