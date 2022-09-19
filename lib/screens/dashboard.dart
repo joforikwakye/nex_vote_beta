@@ -19,9 +19,9 @@ class _DashboardState extends State<Dashboard> {
 
     if (time.hour < 12) {
       greeting = 'Good Morning.';
-    } else if (time.hour >= 12 && time.hour <= 4) {
+    } else if (time.hour >= 12 && time.hour <= 16) {
       greeting = 'Good Afternoon.';
-    } else if (time.hour >= 5) {
+    } else if (time.hour >= 17) {
       greeting = 'Good Evening.';
     }
 
@@ -31,7 +31,7 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     var data = context.watch<UserProvider>().userInfo;
-    print(data);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('NexVote'),
