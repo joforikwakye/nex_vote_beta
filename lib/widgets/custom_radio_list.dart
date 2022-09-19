@@ -6,16 +6,19 @@ import '../models/position_models.dart';
 
 class CustomRadioListTile extends StatelessWidget {
   final int index;
+  // ignore: prefer_typing_uninitialized_variables
   final snapshot;
   final String portfolio;
+  final String dept;
 
   const CustomRadioListTile(
-      {Key key, this.index, this.snapshot, this.portfolio})
+      {Key key, this.index, this.snapshot, this.portfolio, this.dept})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final groupValue = getGroupValue(portfolio, context);
+    final groupValue = getGroupValue(dept, portfolio, context);
+    //print("groupvalue: " + groupValue.toString());
     return RadioListTile(
       value: index,
       groupValue: groupValue,
@@ -32,21 +35,42 @@ class CustomRadioListTile extends StatelessWidget {
   }
 
 //saves the index of whoever you vote for
-  int getGroupValue(portfolio, BuildContext context) {
-    switch (portfolio) {
-      case "president":
-        return context.watch<UserProvider>().selectedPresident;
-      case "finSec":
-        return context.watch<UserProvider>().selectedFinSec;
-      case "genSec":
-        return context.watch<UserProvider>().selectedGenSec;
+  int getGroupValue(dept, portfolio, BuildContext context) {
+    if (dept == "aces") {
+      switch (portfolio) {
+        case "president":
+          return context.watch<UserProvider>().selectedPresident;
+        case "finSec":
+          return context.watch<UserProvider>().selectedFinSec;
+        case "genSec":
+          return context.watch<UserProvider>().selectedGenSec;
+      }
+    } else if (dept == "biomed") {
+      switch (portfolio) {
+        case "president":
+          return context.watch<UserProvider>().selectedBiomedPresident;
+        case "finSec":
+          return context.watch<UserProvider>().selectedBiomedFinSec;
+        case "genSec":
+          return context.watch<UserProvider>().selectedBiomedGenSec;
+      }
+    } else if (dept == "gesa") {
+      switch (portfolio) {
+        case "president":
+          return context.watch<UserProvider>().selectedGesaPresident;
+        case "finSec":
+          return context.watch<UserProvider>().selectedGesaFinSec;
+        case "genSec":
+          return context.watch<UserProvider>().selectedGesaGenSec;
+      }
     }
+
     return 0;
   }
 
   void makeChanges(int value, BuildContext context) {
     Presidents selectedCandidate = snapshot.data[value];
-    context.read<UserProvider>().changeSelectedValue(value, portfolio);
+    context.read<UserProvider>().changeSelectedValue(dept, value, portfolio);
     context.read<UserProvider>().addVote(
         portfolio,
         "${selectedCandidate.firstName} ${selectedCandidate.imageUrl}",
