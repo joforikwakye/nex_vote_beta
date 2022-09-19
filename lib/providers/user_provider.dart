@@ -13,10 +13,18 @@ class UserProvider with ChangeNotifier {
   int selectedGenSec;
   int selectedFinSec;
 
-  void addVote(String potfolio, String candidate, String imageUrl) {
-    // print(potfolio);
-    votes[potfolio]["name"] = candidate;
-    votes[potfolio]["imageUrl"] = imageUrl;
+  int selectedBiomedPresident;
+  int selectedBiomedGenSec;
+  int selectedBiomedFinSec;
+
+  int selectedGesaPresident;
+  int selectedGesaGenSec;
+  int selectedGesaFinSec;
+
+  void addVote(String portfolio, String candidate, String imageUrl) {
+    //print(portfolio);
+    votes[portfolio]["name"] = candidate;
+    votes[portfolio]["imageUrl"] = imageUrl;
     // print('=============================== $candidate : $imageUrl');
     notifyListeners();
   }
@@ -25,17 +33,43 @@ class UserProvider with ChangeNotifier {
     votesSubmitted = false;
   }
 
-  void changeSelectedValue(int newValue, String portfolio) {
-    switch (portfolio) {
-      case "president":
-        selectedPresident = newValue;
-        break;
-      case "finSec":
-        selectedFinSec = newValue;
-        break;
-      case "genSec":
-        selectedGenSec = newValue;
-        break;
+  void changeSelectedValue(String dept, int newValue, String portfolio) {
+    if (dept == "aces") {
+      switch (portfolio) {
+        case "president":
+          selectedPresident = newValue;
+          break;
+        case "finSec":
+          selectedFinSec = newValue;
+          break;
+        case "genSec":
+          selectedGenSec = newValue;
+          break;
+      }
+    } else if (dept == "biomed") {
+      switch (portfolio) {
+        case "president":
+          selectedBiomedPresident = newValue;
+          break;
+        case "finSec":
+          selectedBiomedFinSec = newValue;
+          break;
+        case "genSec":
+          selectedBiomedGenSec = newValue;
+          break;
+      }
+    } else if (dept == "gesa") {
+      switch (portfolio) {
+        case "president":
+          selectedGesaPresident = newValue;
+          break;
+        case "finSec":
+          selectedGesaFinSec = newValue;
+          break;
+        case "genSec":
+          selectedGesaGenSec = newValue;
+          break;
+      }
     }
     notifyListeners();
   }
