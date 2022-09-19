@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:nex_vote_beta/department_candidates/positions_biomed/fin_sec.dart';
 import 'package:nex_vote_beta/department_candidates/positions_biomed/gen_sec.dart';
 import 'package:nex_vote_beta/department_candidates/positions_biomed/president.dart';
+import 'package:nex_vote_beta/providers/user_provider.dart';
+import 'package:nex_vote_beta/widgets/snack_bar.dart';
+import 'package:provider/provider.dart';
 
 class BIOMED extends StatelessWidget {
   const BIOMED({Key key}) : super(key: key);
@@ -35,7 +38,14 @@ class BIOMED extends StatelessWidget {
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            Navigator.of(context).pushNamed('/review');
+            final finishedVoting = context
+                .read<UserProvider>()
+                .votes
+                .values
+                .every((element) => element["name"] != "");
+            finishedVoting == true
+                ? Navigator.of(context).pushNamed('/review')
+                : ShowSnackBar().showSnackBar(context);
           },
           backgroundColor: const Color(0xff610B0C),
           child: const Icon(Icons.arrow_forward),
