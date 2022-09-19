@@ -12,8 +12,6 @@ class GenSecGesa extends StatefulWidget {
 }
 
 class _GenSecGesaState extends State<GenSecGesa> {
-  int selectedValue = 4;
-
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
@@ -35,7 +33,8 @@ class _GenSecGesaState extends State<GenSecGesa> {
                   child: CustomRadioListTile(
                     index: index,
                     snapshot: snapshot,
-                    portfolio: "finSec",
+                    portfolio: "genSec",
+                    dept: "gesa",
                   ),
                 ),
               );
