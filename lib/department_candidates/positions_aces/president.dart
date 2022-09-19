@@ -12,10 +12,6 @@ class President extends StatefulWidget {
 }
 
 class _PresidentState extends State<President> {
-  int selectedValue;
-
-  bool selected = false;
-
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
@@ -37,6 +33,7 @@ class _PresidentState extends State<President> {
                     index: index,
                     snapshot: snapshot,
                     portfolio: "president",
+                    dept: "aces",
                   ),
                 ),
               );

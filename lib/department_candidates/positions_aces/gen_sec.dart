@@ -12,8 +12,6 @@ class GenSec extends StatefulWidget {
 }
 
 class _GenSecState extends State<GenSec> {
-  int selectedValue;
-
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
@@ -36,6 +34,7 @@ class _GenSecState extends State<GenSec> {
                     index: index,
                     snapshot: snapshot,
                     portfolio: "genSec",
+                    dept: "aces",
                   ),
                 ),
               );

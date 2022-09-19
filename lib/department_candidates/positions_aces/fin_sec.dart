@@ -12,8 +12,6 @@ class FinSec extends StatefulWidget {
 }
 
 class _FinSecState extends State<FinSec> {
-  int selectedValue;
-
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
@@ -36,6 +34,7 @@ class _FinSecState extends State<FinSec> {
                     index: index,
                     snapshot: snapshot,
                     portfolio: "finSec",
+                    dept: "aces",
                   ),
                 ),
               );
