@@ -21,6 +21,7 @@ class BIOMED extends StatelessWidget {
           backgroundColor: const Color(0xff610B0C),
           elevation: 0,
           bottom: const TabBar(
+            indicatorColor: Colors.yellow,
             tabs: [
               Tab(text: 'President'),
               Tab(text: 'Fin Sec'),

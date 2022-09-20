@@ -21,6 +21,7 @@ class Gesa extends StatelessWidget {
           backgroundColor: Color(0xff610B0C),
           elevation: 0,
           bottom: TabBar(
+            indicatorColor: Colors.yellow,
             tabs: [
               Tab(text: 'President'),
               Tab(text: 'Fin Sec'),
