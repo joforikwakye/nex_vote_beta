@@ -71,9 +71,22 @@ class CustomRadioListTile extends StatelessWidget {
   void makeChanges(int value, BuildContext context) {
     Presidents selectedCandidate = snapshot.data[value];
     context.read<UserProvider>().changeSelectedValue(dept, value, portfolio);
-    context.read<UserProvider>().addVote(
-        portfolio,
-        "${selectedCandidate.firstName} ${selectedCandidate.imageUrl}",
-        selectedCandidate.lastName);
+
+    if (dept == "aces") {
+      context.read<UserProvider>().addAcesVote(
+          portfolio,
+          "${selectedCandidate.firstName} ${selectedCandidate.imageUrl}",
+          selectedCandidate.lastName);
+    } else if (dept == "biomed") {
+      context.read<UserProvider>().addBiomedVote(
+          portfolio,
+          "${selectedCandidate.firstName} ${selectedCandidate.imageUrl}",
+          selectedCandidate.lastName);
+    } else if (dept == "gesa") {
+      context.read<UserProvider>().addGesaVote(
+          portfolio,
+          "${selectedCandidate.firstName} ${selectedCandidate.imageUrl}",
+          selectedCandidate.lastName);
+    }
   }
 }
