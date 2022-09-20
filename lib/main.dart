@@ -4,7 +4,9 @@ import 'package:nex_vote_beta/department_candidates/aces.dart';
 import 'package:nex_vote_beta/department_candidates/gesa.dart';
 import 'package:nex_vote_beta/providers/user_provider.dart';
 import 'package:nex_vote_beta/screens/dashboard.dart';
-import 'package:nex_vote_beta/screens/review.dart';
+import 'package:nex_vote_beta/screens/reviews/review_aces.dart';
+import 'package:nex_vote_beta/screens/reviews/review_biomed.dart';
+import 'package:nex_vote_beta/screens/reviews/review_gesa.dart';
 import 'package:nex_vote_beta/screens/see_all.dart';
 import 'package:nex_vote_beta/screens/sign_in.dart';
 import 'package:nex_vote_beta/screens/success.dart';
@@ -24,7 +26,9 @@ class MyApp extends StatelessWidget {
         routes: {
           '/dashboard': (context) => const Dashboard(),
           '/see_all': (context) => const SeeAll(),
-          '/review': (context) => const ReviewScreen(),
+          '/review_aces': (context) => const ReviewScreen(),
+          '/review_biomed': (context) => const ReviewBiomedScreen(),
+          '/review_gesa': (context) => const ReviewGesaScreen(),
           '/gesa': (context) => Gesa(),
           '/aces': (context) => const ACES(),
           '/biomed': (context) => const BIOMED(),
