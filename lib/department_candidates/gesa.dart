@@ -4,6 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:nex_vote_beta/department_candidates/positions_gesa/fin_sec.dart';
 import 'package:nex_vote_beta/department_candidates/positions_gesa/gen_sec.dart';
 import 'package:nex_vote_beta/department_candidates/positions_gesa/president.dart';
+import 'package:provider/provider.dart';
+
+import '../providers/user_provider.dart';
+import '../widgets/snack_bar.dart';
 
 class Gesa extends StatelessWidget {
   @override
@@ -34,7 +38,14 @@ class Gesa extends StatelessWidget {
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            Navigator.of(context).pushNamed('/review');
+            final finishedVoting = context
+                .read<UserProvider>()
+                .gesaVotes
+                .values
+                .every((element) => element["name"] != "");
+            finishedVoting == true
+                ? Navigator.of(context).pushNamed('/review_gesa')
+                : ShowSnackBar().showSnackBar(context);
           },
           backgroundColor: Color(0xff610B0C),
           child: Icon(Icons.arrow_forward),

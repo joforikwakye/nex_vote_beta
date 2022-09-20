@@ -40,11 +40,11 @@ class ACES extends StatelessWidget {
           onPressed: () {
             final finishedVoting = context
                 .read<UserProvider>()
-                .votes
+                .acesVotes
                 .values
                 .every((element) => element["name"] != "");
             finishedVoting == true
-                ? Navigator.of(context).pushNamed('/review')
+                ? Navigator.of(context).pushNamed('/review_aces')
                 : ShowSnackBar().showSnackBar(context);
           },
           backgroundColor: const Color(0xff610B0C),

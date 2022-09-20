@@ -40,11 +40,11 @@ class BIOMED extends StatelessWidget {
           onPressed: () {
             final finishedVoting = context
                 .read<UserProvider>()
-                .votes
+                .biomedVotes
                 .values
                 .every((element) => element["name"] != "");
             finishedVoting == true
-                ? Navigator.of(context).pushNamed('/review')
+                ? Navigator.of(context).pushNamed('/review_biomed')
                 : ShowSnackBar().showSnackBar(context);
           },
           backgroundColor: const Color(0xff610B0C),
