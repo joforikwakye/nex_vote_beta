@@ -15,16 +15,30 @@ NAVIGATES TO THE APPROPRIATE SCREEN */
     if (imageId == 1) {
       final finishedVoting = context
           .read<UserProvider>()
-          .votes
+          .acesVotes
           .values
           .every((element) => element["name"] != "");
       finishedVoting == true
-          ? Navigator.of(context).pushNamed('/review')
+          ? Navigator.of(context).pushNamed('/review_aces')
           : Navigator.of(context).pushNamed('/aces');
     } else if (imageId == 2) {
-      Navigator.of(context).pushNamed('/biomed');
+      final finishedVoting = context
+          .read<UserProvider>()
+          .biomedVotes
+          .values
+          .every((element) => element["name"] != "");
+      finishedVoting == true
+          ? Navigator.of(context).pushNamed('/review_biomed')
+          : Navigator.of(context).pushNamed('/biomed');
     } else if (imageId == 3) {
-      Navigator.of(context).pushNamed('/gesa');
+      final finishedVoting = context
+          .read<UserProvider>()
+          .gesaVotes
+          .values
+          .every((element) => element["name"] != "");
+      finishedVoting == true
+          ? Navigator.of(context).pushNamed('/review_gesa')
+          : Navigator.of(context).pushNamed('/gesa');
     }
   }
 
