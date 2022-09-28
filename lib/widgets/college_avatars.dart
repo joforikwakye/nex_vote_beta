@@ -9,7 +9,7 @@ class CollegeAvatars extends StatelessWidget {
 
 /*THIS FUNCTION DETERMINES THE IMAGEID BEING PASSED TO THE CONSTRUCTOR AND 
 NAVIGATES TO THE APPROPRIATE SCREEN */
-  void navigations(BuildContext context) {
+  void navigations(BuildContext context) async {
     if (imageId == 1) {
       Navigator.of(context).pushNamed('/aces');
     } else if (imageId == 2) {

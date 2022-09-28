@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../widgets/college_avatars.dart';
 
 class COS extends StatelessWidget {
-  const COS({Key? key}) : super(key: key);
+  const COS({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'sign_in.dart';
 
 class SplashScreen extends StatelessWidget {
-  const SplashScreen({Key? key}) : super(key: key);
+  const SplashScreen({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return AnimatedSplashScreen(
       splash: Column(
-        children: [
+        children: const [
           Text(
             'NexVote',
             style: TextStyle(
@@ -27,9 +27,11 @@ class SplashScreen extends StatelessWidget {
           ),
         ],
       ),
-      nextScreen: SignIn(),
+
+      //i think wrapper for come
+      nextScreen: const SignIn(),
       splashTransition: SplashTransition.slideTransition,
-      backgroundColor: Color(0xff610B0C),
+      backgroundColor: const Color(0xff610B0C),
     );
   }
 }

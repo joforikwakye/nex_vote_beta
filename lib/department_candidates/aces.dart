@@ -5,7 +5,7 @@ import 'package:nex_vote_beta/department_candidates/positions_aces/gen_sec.dart'
 import 'package:nex_vote_beta/department_candidates/positions_aces/president.dart';
 
 class ACES extends StatelessWidget {
-  const ACES({Key? key}) : super(key: key);
+  const ACES({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

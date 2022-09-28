@@ -2,11 +2,35 @@ import 'package:flutter/material.dart';
 import 'package:nex_vote_beta/screens/coe.dart';
 import 'package:nex_vote_beta/screens/cos.dart';
 
-class Dashboard extends StatelessWidget {
-  const Dashboard({Key? key}) : super(key: key);
+class Dashboard extends StatefulWidget {
+  const Dashboard({Key key}) : super(key: key);
+
+  @override
+  State<Dashboard> createState() => _DashboardState();
+}
+
+class _DashboardState extends State<Dashboard> {
+  Map data = {};
+
+  String get greeting {
+    var greeting = '';
+    var time = DateTime.now();
+
+    if (time.hour < 12) {
+      greeting = 'Good Morning.';
+    } else if (time.hour >= 12 && time.hour <= 17) {
+      greeting = 'Good Afternoon';
+    } else if (time.hour >= 18) {
+      greeting = 'Good Evening.';
+    }
+
+    return greeting;
+  }
 
   @override
   Widget build(BuildContext context) {
+    data = ModalRoute.of(context)?.settings.arguments as Map;
+    print(data);
     return Scaffold(
       appBar: AppBar(
         title: const Text('NexVote'),
@@ -26,15 +50,15 @@ class Dashboard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Hello Jeff,',
+                        'Hello ${data['name']},',
                         style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
+                            fontSize: 25, fontWeight: FontWeight.bold),
                       ),
                       SizedBox(height: 8),
                       Text(
-                        'Good Afternoon',
+                        greeting,
                         style: TextStyle(
-                          fontSize: 25,
+                          fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -42,8 +66,9 @@ class Dashboard extends StatelessWidget {
                   ),
                   //SizedBox(width: 80),
                   ClipRRect(
-                    child: Image.asset(
-                      'assets/images/mypic.JPG',
+                    // ignore: sort_child_properties_last
+                    child: Image.network(
+                      '${data['url']}',
                       width: 80,
                       height: 80,
                     ),
@@ -63,7 +88,9 @@ class Dashboard extends StatelessWidget {
                     'Sign out',
                     style: TextStyle(fontSize: 12),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushReplacementNamed(context, '/sign_in');
+                  },
                   style: ElevatedButton.styleFrom(
                     primary: const Color(0xff610B0C),
                     onPrimary: Colors.white,

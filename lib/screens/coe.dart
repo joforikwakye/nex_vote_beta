@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../widgets/college_avatars.dart';
 
 class COE extends StatelessWidget {
-  const COE({Key? key}) : super(key: key);
+  const COE({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

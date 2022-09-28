@@ -1,11 +1,11 @@
 //THIS CLASS IS REPSONSIBLE FOR DISPLAYING THE VARIOUS CANDIDATES FOR BIOMED
 import 'package:flutter/material.dart';
-import 'package:nex_vote_beta/department_candidates/positions_aces/fin_sec.dart';
-import 'package:nex_vote_beta/department_candidates/positions_aces/gen_sec.dart';
-import 'package:nex_vote_beta/department_candidates/positions_aces/president.dart';
+import 'package:nex_vote_beta/department_candidates/positions_biomed/fin_sec.dart';
+import 'package:nex_vote_beta/department_candidates/positions_biomed/gen_sec.dart';
+import 'package:nex_vote_beta/department_candidates/positions_biomed/president.dart';
 
 class BIOMED extends StatelessWidget {
-  const BIOMED({Key? key}) : super(key: key);
+  const BIOMED({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +28,9 @@ class BIOMED extends StatelessWidget {
         body: const TabBarView(
           children: [
             //PRESIDENTS
-            President(),
-            FinSec(),
-            GenSec(),
+            PresidentBiomed(),
+            FinSecBiomed(),
+            GenSecBiomed(),
           ],
         ),
         floatingActionButton: FloatingActionButton(

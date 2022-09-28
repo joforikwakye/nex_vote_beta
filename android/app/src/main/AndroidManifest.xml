@@ -1,5 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.nex_vote_beta">
+
+     <uses-permission android:name="android.permission.INTERNET"/>
+     
    <application
         android:label="nex_vote_beta"
         android:name="${applicationName}"
