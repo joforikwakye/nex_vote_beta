@@ -2,7 +2,9 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:nex_vote_beta/models/set_args.dart';
+import 'package:provider/provider.dart';
+
+import '../providers/user_provider.dart';
 
 class HttpService {
   static final client = http.Client();
@@ -10,7 +12,7 @@ class HttpService {
   static var loginUrl = Uri.parse('http://10.0.2.2:5000/login');
   static var getPresidentsUrl = Uri.parse('http://10.0.2.2:5000/presidents');
 
-  static login(username, password, context) async {
+  static login(username, password, BuildContext context) async {
     var headers = {
       'Content-Type': 'application/json',
     };
@@ -48,18 +50,9 @@ class HttpService {
           var firstName = json['first_name'];
           var imageUrl = json['image'];
 
-          SetArgs args = SetArgs();
-          args.setFirstName(firstName);
-          args.setImageUrl(imageUrl);
+          context.read<UserProvider>().storeUserInfo(firstName, imageUrl);
 
-          Navigator.pushReplacementNamed(
-            context,
-            '/dashboard',
-            arguments: {
-              'name': args.getFirstName,
-              'url': args.getImageUrl,
-            },
-          );
+          Navigator.pushReplacementNamed(context, '/dashboard');
           return 'success';
         }
       } else if (json['status'] == 'Incorrect username or password') {

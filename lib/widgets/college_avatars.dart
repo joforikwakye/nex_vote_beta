@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:nex_vote_beta/providers/user_provider.dart';
+import 'package:provider/provider.dart';
 
 class CollegeAvatars extends StatelessWidget {
   final String imageUrl;
@@ -11,11 +13,32 @@ class CollegeAvatars extends StatelessWidget {
 NAVIGATES TO THE APPROPRIATE SCREEN */
   void navigations(BuildContext context) async {
     if (imageId == 1) {
-      Navigator.of(context).pushNamed('/aces');
+      final finishedVoting = context
+          .read<UserProvider>()
+          .acesVotes
+          .values
+          .every((element) => element["name"] != "");
+      finishedVoting == true
+          ? Navigator.of(context).pushNamed('/review_aces')
+          : Navigator.of(context).pushNamed('/aces');
     } else if (imageId == 2) {
-      Navigator.of(context).pushNamed('/biomed');
+      final finishedVoting = context
+          .read<UserProvider>()
+          .biomedVotes
+          .values
+          .every((element) => element["name"] != "");
+      finishedVoting == true
+          ? Navigator.of(context).pushNamed('/review_biomed')
+          : Navigator.of(context).pushNamed('/biomed');
     } else if (imageId == 3) {
-      Navigator.of(context).pushNamed('/gesa');
+      final finishedVoting = context
+          .read<UserProvider>()
+          .gesaVotes
+          .values
+          .every((element) => element["name"] != "");
+      finishedVoting == true
+          ? Navigator.of(context).pushNamed('/review_gesa')
+          : Navigator.of(context).pushNamed('/gesa');
     }
   }
 

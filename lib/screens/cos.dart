@@ -41,9 +41,9 @@ class COS extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             child: Row(
               children: [
-                CollegeAvatars('assets/images/compu_sci.jpeg', 4),
+                CollegeAvatars('assets/images/stats.jpeg', 4),
                 const SizedBox(width: 0),
-                CollegeAvatars('assets/images/compu_sci.jpeg', 5),
+                CollegeAvatars('assets/images/biochem.jpeg', 5),
                 const SizedBox(width: 10),
                 CollegeAvatars('assets/images/compu_sci.jpeg', 6),
                 const SizedBox(width: 10),

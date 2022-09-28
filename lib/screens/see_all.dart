@@ -1,5 +1,7 @@
 //THIS CLASS DISPLAYS ALL DEPARTMENTS UNDER COLLEGE OF ENGINEERING
 import 'package:flutter/material.dart';
+import 'package:nex_vote_beta/providers/user_provider.dart';
+import 'package:provider/provider.dart';
 
 class SeeAll extends StatelessWidget {
   const SeeAll({Key key}) : super(key: key);
@@ -38,7 +40,14 @@ class SeeAll extends StatelessWidget {
                   subtitle: const Text('Slogan'),
                 ),
                 onPressed: () {
-                  Navigator.of(context).pushNamed('/biomed');
+                  final finishedVoting = context
+                      .read<UserProvider>()
+                      .biomedVotes
+                      .values
+                      .every((element) => element["name"] != "");
+                  finishedVoting == true
+                      ? Navigator.of(context).pushNamed('/review_biomed')
+                      : Navigator.of(context).pushNamed('/biomed');
                 },
               ),
             ),
@@ -63,7 +72,14 @@ class SeeAll extends StatelessWidget {
                   subtitle: const Text('Slogan'),
                 ),
                 onPressed: () {
-                  Navigator.of(context).pushNamed('/aces');
+                  final finishedVoting = context
+                      .read<UserProvider>()
+                      .acesVotes
+                      .values
+                      .every((element) => element["name"] != "");
+                  finishedVoting == true
+                      ? Navigator.of(context).pushNamed('/review_aces')
+                      : Navigator.of(context).pushNamed('/aces');
                 },
               ),
             ),
@@ -88,7 +104,14 @@ class SeeAll extends StatelessWidget {
                   subtitle: const Text('Slogan'),
                 ),
                 onPressed: () {
-                  Navigator.of(context).pushNamed('/gesa');
+                  final finishedVoting = context
+                      .read<UserProvider>()
+                      .gesaVotes
+                      .values
+                      .every((element) => element["name"] != "");
+                  finishedVoting == true
+                      ? Navigator.of(context).pushNamed('/review_gesa')
+                      : Navigator.of(context).pushNamed('/gesa');
                 },
               ),
             ),

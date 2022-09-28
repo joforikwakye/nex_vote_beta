@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:nex_vote_beta/providers/user_provider.dart';
 import 'package:nex_vote_beta/screens/coe.dart';
 import 'package:nex_vote_beta/screens/cos.dart';
+import 'package:provider/provider.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({Key key}) : super(key: key);
@@ -10,17 +13,15 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
-  Map data = {};
-
   String get greeting {
     var greeting = '';
     var time = DateTime.now();
 
     if (time.hour < 12) {
       greeting = 'Good Morning.';
-    } else if (time.hour >= 12 && time.hour <= 17) {
-      greeting = 'Good Afternoon';
-    } else if (time.hour >= 18) {
+    } else if (time.hour >= 12 && time.hour <= 16) {
+      greeting = 'Good Afternoon.';
+    } else if (time.hour >= 17) {
       greeting = 'Good Evening.';
     }
 
@@ -29,13 +30,35 @@ class _DashboardState extends State<Dashboard> {
 
   @override
   Widget build(BuildContext context) {
-    data = ModalRoute.of(context)?.settings.arguments as Map;
-    print(data);
+    var data = context.watch<UserProvider>().userInfo;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('NexVote'),
         backgroundColor: const Color(0xff610B0C),
         elevation: 0,
+        automaticallyImplyLeading: false,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.people),
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (ctx) => const AlertDialog(
+                  title: Text("About Us"),
+                  content: Text(
+                      "This app is developed and maintained by members of group nexus."),
+                ),
+              );
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.logout),
+            onPressed: () {
+              Navigator.pushReplacementNamed(context, '/sign_in');
+            },
+          ),
+        ],
       ),
       body: SafeArea(
         child: Column(
@@ -49,26 +72,31 @@ class _DashboardState extends State<Dashboard> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      const SizedBox(height: 10),
                       Text(
                         'Hello ${data['name']},',
-                        style: TextStyle(
-                            fontSize: 25, fontWeight: FontWeight.bold),
+                        style: GoogleFonts.lato(
+                          textStyle: TextStyle(
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ),
-                      SizedBox(height: 8),
+                      const SizedBox(height: 8),
                       Text(
                         greeting,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
+                      const SizedBox(height: 10)
                     ],
                   ),
-                  //SizedBox(width: 80),
                   ClipRRect(
                     // ignore: sort_child_properties_last
                     child: Image.network(
-                      '${data['url']}',
+                      '${data['imageUrl']}',
                       width: 80,
                       height: 80,
                     ),
@@ -78,35 +106,14 @@ class _DashboardState extends State<Dashboard> {
               ),
             ),
 
-            //SIGN OUT BUTTON
-            Container(
-              margin: const EdgeInsets.only(left: 264),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(12),
-                child: ElevatedButton(
-                  child: const Text(
-                    'Sign out',
-                    style: TextStyle(fontSize: 12),
-                  ),
-                  onPressed: () {
-                    Navigator.pushReplacementNamed(context, '/sign_in');
-                  },
-                  style: ElevatedButton.styleFrom(
-                    primary: const Color(0xff610B0C),
-                    onPrimary: Colors.white,
-                  ),
-                ),
-              ),
-            ),
-            //END
-            const SizedBox(height: 50),
+            const SizedBox(height: 30),
 
             //COLLEGE OF ENGINEERING
-            COE(),
+            const COE(),
             const SizedBox(height: 20),
 
             //COLLEGE OF SCIENCE
-            COS(),
+            const COS(),
           ],
         ),
       ),
