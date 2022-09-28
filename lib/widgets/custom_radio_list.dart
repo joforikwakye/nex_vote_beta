@@ -28,7 +28,13 @@ class CustomRadioListTile extends StatelessWidget {
       ),
       secondary: ClipRRect(
         borderRadius: BorderRadius.circular(27),
-        child: Image.network(snapshot.data[index].lastName),
+        child: Image.network(
+          snapshot.data[index].lastName,
+          errorBuilder:
+              (BuildContext context, Object exception, StackTrace stackTrace) {
+            return const Icon(Icons.person);
+          },
+        ),
       ),
       onChanged: (value) => makeChanges(value, context),
     );
